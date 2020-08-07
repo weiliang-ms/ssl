@@ -2,6 +2,12 @@
 
 > 1.服务端证书生成(单向)
 
+    export ssl_generate_version=0.0.1
+    curl -L https://github.com/weiliang-ms/ssl/archive/${ssl_generate_version}.tar.gz -O
+    tar zxvf ${ssl_generate_version}.tar.gz
+    cd ssl-${ssl_generate_version}/shell
+    chmod +x *.sh
+    
     # 注意替换参数值
     # ssl-domain为域名
     # ssl-trusted-domain 如果想多个域名访问，则添加扩展域名（SSL_TRUSTED_DOMAIN）,多个扩展域名用逗号隔开；
@@ -13,7 +19,7 @@
 > 2.服务端证书生成（可选）
 
     # ssl-date 证书有效期（单位:日）
-    ./server-generate.sh --ssl-date=3650
+    ./client-generate.sh --ssl-date=3650
     
 > 3.nginx服务端ssl配置样例
 

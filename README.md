@@ -2,6 +2,8 @@
 
 > 1.服务端证书生成(单向)
 
+    mkdir -p /ssl && cd /ssl
+    
     export ssl_generate_version=0.0.1
     curl -L https://github.com/weiliang-ms/ssl/archive/${ssl_generate_version}.tar.gz -O
     tar zxvf ${ssl_generate_version}.tar.gz

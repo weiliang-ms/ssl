@@ -1,20 +1,20 @@
 ## 自签名证书
 
 > 1.服务端证书生成(单向)
-
-    mkdir -p /ssl && cd /ssl
     
+    mkdir -p /ssl
     export ssl_generate_version=0.0.1
     curl -L https://github.com/weiliang-ms/ssl/archive/${ssl_generate_version}.tar.gz -O
     tar zxvf ${ssl_generate_version}.tar.gz
     cd ssl-${ssl_generate_version}/shell
     chmod +x *.sh
+    cp *.sh /ssl/
     
     # 注意替换参数值
     # ssl-domain为域名
     # ssl-trusted-domain 如果想多个域名访问，则添加扩展域名（SSL_TRUSTED_DOMAIN）,多个扩展域名用逗号隔开；
     # ssl-date 证书有效期（单位:日）
-    mkdir -p /ssl && cd ssl
+    cd /ssl
     ./server-generate.sh --ssl-domain=www.weiliang.com --ssl-trusted-domain=www.test2.com \
     --ssl-trusted-ip=1.1.1.1,2.2.2.2,3.3.3.3 --ssl-size=2048 --ssl-date=3650
     
